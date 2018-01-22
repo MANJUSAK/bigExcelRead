@@ -20,7 +20,7 @@ public class ReadExcelTest {
                 @Override
                 public void run() {
                     Date date = new Date();
-                    String path = "d:/excel/8.xlsx";
+                    String path = "d:/excel/1.xlsx";
                     File file = new File(path);
                     try {
                         System.out.println("读取全部" + Excel.readExcel(file, User.class));

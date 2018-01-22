@@ -24,7 +24,7 @@ public class User implements java.io.Serializable {
     private String groupName;
     @Column
     private String clazz;
-    @Column
+    @Column(length = 2)
     private String school;
 
     public String getId() {

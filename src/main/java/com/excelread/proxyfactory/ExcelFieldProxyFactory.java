@@ -41,14 +41,10 @@ public class ExcelFieldProxyFactory {
                 if (column.nonempty()) {
                     if (str != null) {
                         method.invoke(obj, str);
-                    } else {
-                        method.invoke(obj, "");
                     }
                 } else if (columnLen != 0) {
                     if (str.length() <= columnLen) {
                         method.invoke(obj, str);
-                    } else {
-                        method.invoke(obj, "");
                     }
                 } else {
                     method.invoke(obj, str);
