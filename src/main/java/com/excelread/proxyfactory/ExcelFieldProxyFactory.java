@@ -25,6 +25,9 @@ public class ExcelFieldProxyFactory {
      * @return 对象数据
      */
     public static Object getProxy(List<String> data, Class<?> clazz) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        if (clazz == null) {
+            return data;
+        }
         Object obj = clazz.newInstance();
         int i = 0;
         for (Field field : clazz.getDeclaredFields()) {

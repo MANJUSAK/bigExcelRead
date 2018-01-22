@@ -38,7 +38,7 @@ public class GetExcelDataServiceImpl implements GetExcelDataService {
                 try {
                     list.add(ExcelFieldProxyFactory.getProxy(rowList, clazz));
                 } catch (IntrospectionException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-                    e.printStackTrace();
+                    throw new ReadExcelException(e.getMessage());
                 }
             }
         };
