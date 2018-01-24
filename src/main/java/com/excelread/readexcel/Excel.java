@@ -9,8 +9,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * description:
@@ -20,8 +18,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version V1.1.0
  */
 public class Excel {
-    private static Lock lock = new ReentrantLock();
-
     /**
      * 读取大数据excel
      *
@@ -38,7 +34,6 @@ public class Excel {
         try {
             fis = new FileInputStream(file);
             GetExcelDataService getExcelDataService = new GetExcelDataServiceImpl();
-            lock.lock();
             list = getExcelDataService.getExcelDataService(fis, clazz);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -46,7 +41,6 @@ public class Excel {
         } finally {
             assert fis != null;
             fis.close();
-            lock.unlock();
         }
         return list;
     }
@@ -67,7 +61,6 @@ public class Excel {
         try {
             fis = new FileInputStream(file);
             GetExcelDataService getExcelDataService = new GetExcelDataServiceImpl();
-            lock.lock();
             list = getExcelDataService.getExcelDataByIndexService(fis, clazz, sheetIndex);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -75,7 +68,6 @@ public class Excel {
         } finally {
             assert fis != null;
             fis.close();
-            lock.unlock();
         }
         return list;
     }
