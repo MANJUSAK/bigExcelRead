@@ -20,9 +20,9 @@ public class ExcelFieldProxyFactory {
     /**
      * 字段数据映射
      *
-     * @param data  excel数据
-     * @param clazz 数据对象
-     * @return 对象数据
+     * @param data  <code>excel数据</code>
+     * @param clazz <code>数据对象</code>
+     * @return <code>对象数据</code>
      */
     public static Object getProxy(List<String> data, Class<?> clazz) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
         if (clazz == null) {

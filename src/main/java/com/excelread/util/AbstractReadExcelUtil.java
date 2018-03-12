@@ -61,8 +61,8 @@ public abstract class AbstractReadExcelUtil extends DefaultHandler {
     /**
      * 遍历工作簿中所有的电子表格
      *
-     * @param inputStream 文件
-     * @throws Exception 异常
+     * @param inputStream <code>文件</code>
+     * @throws Exception <code>异常</code>
      */
     public void process(InputStream inputStream) throws Exception {
         OPCPackage pkg = OPCPackage.open(inputStream);
@@ -82,9 +82,9 @@ public abstract class AbstractReadExcelUtil extends DefaultHandler {
     /**
      * 只遍历一个电子表格，其中sheetId为要遍历的sheet索引，从1开始，1-3
      *
-     * @param inputStream 文件
-     * @param sheetId     sheet表索引
-     * @throws Exception 异常
+     * @param inputStream <code>文件</code>
+     * @param sheetId     <code>sheet表索引</code>
+     * @throws Exception <code>异常</code>
      */
     public void process(InputStream inputStream, int sheetId) throws Exception {
         OPCPackage pkg = OPCPackage.open(inputStream);
@@ -190,7 +190,7 @@ public abstract class AbstractReadExcelUtil extends DefaultHandler {
     /**
      * 获取行数据回调
      *
-     * @param rowList 行数据
+     * @param rowList <code>行数据</code>
      */
     public abstract void getRows(List<String> rowList);
 }

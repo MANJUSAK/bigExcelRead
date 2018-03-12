@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -16,60 +17,19 @@ import java.util.Random;
  */
 public class ReadExcelTest {
     public static void main(String[] arg) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Date date = new Date();
-                String path = "d:/excel/8.xlsx";
-                File file = new File(path);
-                try {
-                    System.out.println("读取全部===>" + Excel.readExcel(file, User.class));
-                    //System.out.println("读取指定sheet表===>" + Excel.readExcelByIndex(file, User.class, 1).size());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                long t = System.currentTimeMillis();
-                System.out.println("运行时间为：" + (t - date.getTime()) + "ms");
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Date date = new Date();
-                String path = "d:/excel/1.xlsx";
-                File file = new File(path);
-                try {
-                    System.out.println("读取全部===>" + Excel.readExcel(file, User.class));
-                    //System.out.println("读取指定sheet表===>" + Excel.readExcelByIndex(file, User.class, 1).size());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                long t = System.currentTimeMillis();
-                System.out.println("运行时间为：" + (t - date.getTime()) + "ms");
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Date date = new Date();
-                String path = "d:/excel/2.xlsx";
-                File file = new File(path);
-                try {
-                    System.out.println("读取全部===>" + Excel.readExcel(file, User.class));
-                    //System.out.println("读取指定sheet表===>" + Excel.readExcelByIndex(file, User.class, 1).size());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                long t = System.currentTimeMillis();
-                System.out.println("运行时间为：" + (t - date.getTime()) + "ms");
-            }
-        }).start();
-       /* for (int i = 0; i < 10; ++i) {
-            for (int j = 1; j <= i; ++j) {
-                System.out.print(i + "*" + j + "=" + i * j + "\t");
-            }
-            System.out.println();
-        }*/
+        Date date = new Date();
+        String path = "d:/excel/8.xlsx";
+        File file = new File(path);
+        try {
+            List<?> data = Excel.readExcel(file, User.class);
+            System.out.println("读取全部===>" + data);
+            System.out.println("读取数量===>" + data.size());
+            //System.out.println("读取指定sheet表===>" + Excel.readExcelByIndex(file, User.class, 1).size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        long t = System.currentTimeMillis();
+        System.out.println("运行时间为：" + (t - date.getTime()) + "ms");
     }
 
     @Test
