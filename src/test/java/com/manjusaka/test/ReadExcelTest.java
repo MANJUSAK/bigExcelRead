@@ -1,6 +1,6 @@
 package com.manjusaka.test;
 
-import com.excelread.readexcel.Excel;
+import com.excel.readexcel.Excel;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,7 +18,7 @@ import java.util.Random;
 public class ReadExcelTest {
     public static void main(String[] arg) {
         Date date = new Date();
-        String path = "d:/excel/8.xlsx";
+        String path = "C:\\Users\\Lenovo\\Desktop\\111.xlsx";
         File file = new File(path);
         try {
             List<?> data = Excel.readExcel(file, User.class);
@@ -39,7 +39,7 @@ public class ReadExcelTest {
     }
 
     private int getMsg() {
-        String path = "d:/excel/8.xlsx";
+        String path = "C:\\Users\\Lenovo\\Desktop\\各地区每日导入银海情况.xlsx";
         File file = new File(path);
         try {
             System.out.println("读取全部===>" + Excel.readExcel(file, User.class).size());

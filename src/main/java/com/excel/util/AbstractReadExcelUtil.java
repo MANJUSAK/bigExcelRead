@@ -1,4 +1,4 @@
-package com.excelread.util;
+package com.excel.util;
 
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.opc.OPCPackage;

@@ -1,6 +1,6 @@
-package com.excelread.service;
+package com.excel.service;
 
-import com.excelread.exception.ReadExcelException;
+import com.excel.exception.ReadExcelException;
 
 import java.io.InputStream;
 import java.util.List;

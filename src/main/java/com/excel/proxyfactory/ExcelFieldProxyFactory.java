@@ -1,6 +1,6 @@
-package com.excelread.proxyfactory;
+package com.excel.proxyfactory;
 
-import com.excelread.annotation.Column;
+import com.excel.annotation.Column;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;

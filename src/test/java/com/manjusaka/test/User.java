@@ -1,6 +1,6 @@
 package com.manjusaka.test;
 
-import com.excelread.annotation.Column;
+import com.excel.annotation.Column;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

@@ -1,9 +1,9 @@
-package com.excelread.service.lmpl;
+package com.excel.service.lmpl;
 
-import com.excelread.exception.ReadExcelException;
-import com.excelread.proxyfactory.ExcelFieldProxyFactory;
-import com.excelread.service.ExcelDataService;
-import com.excelread.util.AbstractReadExcelUtil;
+import com.excel.exception.ReadExcelException;
+import com.excel.proxyfactory.ExcelFieldProxyFactory;
+import com.excel.service.ExcelDataService;
+import com.excel.util.AbstractReadExcelUtil;
 
 import java.beans.IntrospectionException;
 import java.io.InputStream;

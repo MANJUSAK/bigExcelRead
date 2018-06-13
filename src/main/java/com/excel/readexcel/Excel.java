@@ -1,8 +1,8 @@
-package com.excelread.readexcel;
+package com.excel.readexcel;
 
-import com.excelread.exception.ReadExcelException;
-import com.excelread.service.ExcelDataService;
-import com.excelread.service.lmpl.ExcelDataServiceImpl;
+import com.excel.exception.ReadExcelException;
+import com.excel.service.ExcelDataService;
+import com.excel.service.lmpl.ExcelDataServiceImpl;
 
 import java.io.File;
 import java.io.FileInputStream;
