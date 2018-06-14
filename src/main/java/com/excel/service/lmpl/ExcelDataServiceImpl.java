@@ -3,7 +3,7 @@ package com.excel.service.lmpl;
 import com.excel.exception.ReadExcelException;
 import com.excel.proxyfactory.ExcelFieldProxyFactory;
 import com.excel.service.ExcelDataService;
-import com.excel.util.AbstractReadExcelUtil;
+import com.excel.util.ReadExcelUtil;
 
 import java.beans.IntrospectionException;
 import java.io.InputStream;
@@ -32,20 +32,20 @@ public class ExcelDataServiceImpl implements ExcelDataService {
     @Override
     public LinkedList<?> getExcelDataService(InputStream inputStream, final Class<?> clazz) throws ReadExcelException {
         final LinkedList<Object> list = new LinkedList<>();
-        AbstractReadExcelUtil rxus = new AbstractReadExcelUtil() {
-            @Override
-            public void getRows(List<String> rowList) {
-                try {
-                    list.add(ExcelFieldProxyFactory.getProxy(rowList, clazz));
-                } catch (IntrospectionException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-                    throw new ReadExcelException(e.getMessage());
-                }
-            }
-        };
+        ReadExcelUtil excelUtil = new ReadExcelUtil();
         try {
-            rxus.process(inputStream);
+            excelUtil.processOneSheet(inputStream);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ReadExcelException(e.getMessage());
+        }
+        List data = ReadExcelUtil.dataList;
+        for (Object aData : data) {
+            try {
+                list.add(ExcelFieldProxyFactory.getProxy(aData.toString().split(","), clazz));
+            } catch (IntrospectionException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+                throw new ReadExcelException(e.getMessage());
+            }
         }
         return list;
     }
@@ -63,20 +63,20 @@ public class ExcelDataServiceImpl implements ExcelDataService {
     @Override
     public LinkedList<?> getExcelDataByIndexService(InputStream inputStream, final Class<?> clazz, int sheetIndex) throws ReadExcelException {
         final LinkedList<Object> list = new LinkedList<>();
-        AbstractReadExcelUtil rxu = new AbstractReadExcelUtil() {
-            @Override
-            public void getRows(List<String> rowList) {
-                try {
-                    list.add(ExcelFieldProxyFactory.getProxy(rowList, clazz));
-                } catch (IntrospectionException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+        ReadExcelUtil excelUtil = new ReadExcelUtil();
         try {
-            rxu.process(inputStream, sheetIndex);
+            excelUtil.processOneSheet(inputStream, sheetIndex);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ReadExcelException(e.getMessage());
+        }
+        List data = ReadExcelUtil.dataList;
+        for (Object aData : data) {
+            try {
+                list.add(ExcelFieldProxyFactory.getProxy(aData.toString().split(","), clazz));
+            } catch (IntrospectionException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+                throw new ReadExcelException(e.getMessage());
+            }
         }
         return list;
     }

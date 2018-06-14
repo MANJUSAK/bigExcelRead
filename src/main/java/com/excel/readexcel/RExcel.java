@@ -18,7 +18,9 @@ import java.util.List;
  * @author manjusaka[manjusakachn@gmail.com] Created on 2018-01-16 10:00
  * @version V1.1.0
  */
-public class Excel {
+public class RExcel {
+    private final static String SUFFIX = "xlsx";
+
     /**
      * 读取大数据excel
      *
@@ -31,6 +33,10 @@ public class Excel {
      * @throws IOException        <code>io异常</code>
      */
     public static List<?> readExcel(File file, Class<?> clazz) throws ReadExcelException, IOException {
+        String fileName = file.getName().toLowerCase();
+        if (!fileName.endsWith(SUFFIX)) {
+            throw new IOException("file format is not xlsx");
+        }
         FileInputStream fis = null;
         LinkedList<?> list;
         try {

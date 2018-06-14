@@ -1,8 +1,7 @@
 package com.manjusaka.test;
 
 import com.excel.annotation.Column;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * description:
@@ -24,8 +23,10 @@ public class User implements java.io.Serializable {
     private String groupName;
     @Column
     private String clazz;
-    @Column(length = 2)
+    @Column
     private String school;
+    @Column
+    private String value;
 
     public String getId() {
         return id;
@@ -83,49 +84,25 @@ public class User implements java.io.Serializable {
         this.school = school;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof User)) return false;
-
-        User user = (User) o;
-
-        return new EqualsBuilder()
-                .append(id, user.id)
-                .append(name, user.name)
-                .append(gender, user.gender)
-                .append(age, user.age)
-                .append(groupName, user.groupName)
-                .append(clazz, user.clazz)
-                .append(school, user.school)
-                .isEquals();
+    public String getValue() {
+        return value;
     }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(id)
-                .append(name)
-                .append(gender)
-                .append(age)
-                .append(groupName)
-                .append(clazz)
-                .append(school)
-                .toHashCode();
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("User{");
-        sb.append("id='").append(id).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", gender='").append(gender).append('\'');
-        sb.append(", age='").append(age).append('\'');
-        sb.append(", groupName='").append(groupName).append('\'');
-        sb.append(", clazz='").append(clazz).append('\'');
-        sb.append(", school='").append(school).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return new ToStringBuilder(this)
+                .append("id", id)
+                .append("name", name)
+                .append("gender", gender)
+                .append("age", age)
+                .append("groupName", groupName)
+                .append("clazz", clazz)
+                .append("school", school)
+                .append("value", value)
+                .toString();
     }
 }

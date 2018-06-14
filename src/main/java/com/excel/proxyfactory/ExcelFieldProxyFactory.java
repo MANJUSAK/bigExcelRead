@@ -7,7 +7,6 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * description:
@@ -24,17 +23,21 @@ public class ExcelFieldProxyFactory {
      * @param clazz <code>数据对象</code>
      * @return <code>对象数据</code>
      */
-    public static Object getProxy(List<String> data, Class<?> clazz) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    public static Object getProxy(String[] data, Class<?> clazz) throws IntrospectionException, IllegalAccessException, InstantiationException, InvocationTargetException {
         if (clazz == null) {
             return data;
         }
         Object obj = clazz.newInstance();
         int i = 0;
+        int len = data.length;
         for (Field field : clazz.getDeclaredFields()) {
+            if (i >= len) {
+                break;
+            }
             Column column = field.getAnnotation(Column.class);
             if (column != null) {
                 int columnLen = column.length();
-                String str = data.get(i);
+                String str = data[i];
                 ++i;
                 PropertyDescriptor pd = new PropertyDescriptor(field.getName(), clazz);
                 Method method = pd.getWriteMethod();
