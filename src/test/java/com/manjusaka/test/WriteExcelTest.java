@@ -43,23 +43,23 @@ public class WriteExcelTest {
             List<String> titleList = new ArrayList<>();
             titleList.add("列名1");
             titleList.add("列名2");
-             /* titleList.add("列名3");
+            titleList.add("列名3");
             titleList.add("列名4");
             titleList.add("列名5");
             titleList.add("列名6");
             titleList.add("列名7");
-            titleList.add("列名8");*/
+            titleList.add("列名8");
             List<String> list1 = new ArrayList<>();
             list1.add("值1");
             list1.add("值2");
-            /*list1.add("值3");
+            list1.add("值3");
             list1.add("值4");
             list1.add("值5");
             list1.add("值6");
             list1.add("值7");
-            list1.add("值8");*/
+            list1.add("值8");
             List<List<String>> list = new ArrayList<>();
-            for (int i = 0; i < 100; ++i) {
+            for (int i = 0; i < 10; ++i) {
                 list.add(list1);
             }
             String title = "标题名称";

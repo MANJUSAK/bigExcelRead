@@ -15,6 +15,13 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.InputStream;
 import java.util.*;
 
+/**
+ * description:
+ * ===>写入数据到excel表工具类
+ *
+ * @author manjusaka[manjusakachn@gmail.com] Created on 2018-01-15 17:33
+ * @version V1.1.0
+ */
 public class ReadExcelUtil {
     private static String cs;
     private static StylesTable stylesTable;
